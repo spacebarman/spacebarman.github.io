@@ -1,0 +1,695 @@
+:root {
+    --light-magenta: #FF70B8;
+    --dark-cyan: #00c4c4;
+    --black: #111111;
+    --white: #F5F5F5;
+    --shadow-offset-x: 6px;
+    --shadow-offset-y: 6px;
+}
+
+/* Custom Font Declaration */
+@font-face {
+    font-family: 'HelveticaNeueLTPro-BlkEx';
+    src: url('HelveticaNeueLTPro-BlkEx.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lexend Mega';
+    src: url('LexendMega-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lexend Mega', 'Space Mono', monospace;
+    background-color: var(--black);
+    color: var(--black);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Site-wide JP-multi background & theme for /docs pages */
+body {
+    background-image: url('../images/JP-multi.jpg');
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(17,17,17,0.35);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Ensure header and main content sit above the overlay */
+.band-header,
+.main-wrapper,
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Make the site title white with a permanent black shadow */
+.band-name {
+    color: #ffffff !important;
+    background: transparent !important;
+}
+
+/* Make all buttons use black text/icons by default on the site */
+.brutalist-button {
+    color: var(--black) !important;
+}
+.brutalist-button i {
+    color: var(--black) !important;
+}
+
+.main-wrapper {
+    margin: 0;
+    width: 100%;
+}
+
+.container {
+/*    border: 4px solid var(--black);
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--black);
+    */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 2rem;
+    position: relative;
+}
+
+/* Brutalist Headers */
+.band-header {
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    margin-bottom: -3rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.spacebarman-photo {
+    filter: hue-rotate(30deg);
+    animation: rainbow 4s steps(36) infinite;
+    -webkit-animation: rainbow 4s steps(36) infinite;
+    width: 10vw;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--white);
+}
+
+.title-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    width: 100%;
+}
+
+.band-name {
+    font-family: 'HelveticaNeueLTPro-BlkEx', sans-serif;
+    /*font-size: 6.5rem;*/
+    font-size: 8.6vw;
+    font-weight: normal;
+    color: var(--black);
+    text-shadow: none; /* No shadow by default */
+    letter-spacing: 0.05em; /* Adding spacing between letters */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    white-space: nowrap; /* Prevent unwanted line breaks */
+    transition: text-shadow 0.3s ease; /* Smooth transition for the shadow effect */
+}
+
+.band-name:hover {
+    text-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--light-magenta);
+}
+
+.title-letter {
+    display: inline-block;
+}
+
+h2 {
+    font-size: 2rem;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* Button Layout */
+.links-section {
+    margin-bottom: 3rem;
+}
+
+.button-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.brutalist-button {
+    display: inline-block;
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background-color: white;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.375rem; /* Increased by 25% from 1.1rem */
+    border: 4px solid var(--black);
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--black);
+    transition: box-shadow 0.2s, background-color 0.2s, color 0.2s, top 0.2s, left 0.2s;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 140px;
+}
+
+.brutalist-button:hover {
+    box-shadow: calc(var(--shadow-offset-x) + 2px) calc(var(--shadow-offset-y) + 2px) 0 var(--black);
+    top: -2px;
+    left: -2px;
+    transform: rotateZ(0.3deg);
+}
+
+.brutalist-button:active {
+    box-shadow: calc(var(--shadow-offset-x) - 2px) calc(var(--shadow-offset-y) - 2px) 0 var(--black);
+    top: 2px;
+    left: 2px;
+}
+
+/* Social Buttons */
+.spotify {
+    color: #1DB954;
+}
+.spotify:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.youtube {
+    color: var(--light-magenta);
+}
+.youtube:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.instagram {
+    color: var(--light-magenta);
+}
+
+.instagram:hover {
+    background-color: var(--light-magenta);
+}
+
+.facebook {
+    color: var(--light-magenta);
+}
+.facebook:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.bandcamp {
+    color: var(--light-magenta);
+}
+.bandcamp:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.soundcloud {
+    color: var(--light-magenta);
+}
+.soundcloud:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.merch {
+    color: var(--light-magenta);
+}
+.merch:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.bio {
+    color: var(--dark-cyan);
+}
+.bio:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.subscribe {
+    color: var(--light-magenta);
+}
+.subscribe:hover {
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+/* Language Buttons */
+.language-buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.language-button {
+    background-color: white;
+    color: var(--light-magenta);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.375rem; /* Increased by 25% to match other buttons */
+    border: 4px solid var(--black);
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--black);
+    transition: box-shadow 0.2s, background-color 0.2s, color 0.2s, top 0.2s, left 0.2s;
+    border-radius: 8px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.language-button:hover {
+    box-shadow: calc(var(--shadow-offset-x) + 2px) calc(var(--shadow-offset-y) + 2px) 0 var(--black);
+    background-color: var(--light-magenta);
+    color: white;
+    top: -2px;
+    left: -2px;
+}
+
+.language-button:active {
+    box-shadow: calc(var(--shadow-offset-x) - 2px) calc(var(--shadow-offset-y) - 2px) 0 var(--black);
+    top: 2px;
+    left: 2px;
+}
+
+.spanish {
+    color: var(--dark-cyan);
+}
+.spanish:hover {
+    background-color: var(--dark-cyan);
+    color: white;
+}
+
+/* Latest Release Section */
+.news {
+    display: none;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    padding: 2rem;
+    border: 4px solid var(--black);
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--black);
+    border-radius: 8px;
+}
+
+/* Video mode styling for YouTube embeds */
+.news-card.video-mode {
+    flex-direction: column;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.news-card.video-mode iframe {
+    height: 400px;
+}
+
+/* Mobile responsive video height */
+@media (max-width: 768px) {
+    .news-card.video-mode iframe {
+        height: calc(100vw * 9 / 16);
+        max-height: 300px;
+    }
+}
+
+.news-card-art-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.news-image-container {
+    width: 200px;
+    height: 200px;
+    margin-right: 2rem;
+    overflow: hidden;
+    background-color: var(--light-magenta);
+    border: 4px solid var(--black);
+    border-radius: 8px;
+    /* Add a placeholder pattern */
+    background-image: 
+        linear-gradient(45deg, var(--light-magenta) 25%, transparent 25%), 
+        linear-gradient(-45deg, var(--light-magenta) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--light-magenta) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--light-magenta) 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: var(--dark-cyan);
+    /* Removed transition and hover effects */
+}
+
+.about {
+    height: 0;
+    color: transparent;
+}
+
+.news-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-text h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-text p {
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.news-cta {
+    margin-top: 1rem;
+    background-color: var(--light-magenta);
+    color: white;
+}
+
+.news-cta:hover {
+    color: var(--dark-cyan);
+    background-color: white;
+}
+
+/* Footer */
+footer {
+    color: var(--white);
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 4px solid var(--white);
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;  /* Return to original gap */
+    margin-bottom: 1rem;  /* Add some margin but less on mobile */
+}
+
+/* Apply larger spacing only on desktop */
+@media (min-width: 768px) {
+    .header-social {
+        gap: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+.footer-social {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-icon {
+    font-size: 1.5rem;
+    color: var(--black);
+    transition: color 0.2s, transform 0.2s;
+}
+
+.header-icon {
+    font-size: 6rem;  /* Increased by 50% from 4rem */
+    color: white;
+    transition: color 0.2s, transform 0.2s;
+}
+
+/* Make icons larger on desktop only */
+@media (min-width: 768px) {
+    .header-icon {
+        font-size: 7.5rem;  /* Increased by 50% from 5rem */
+    }
+}
+
+.footer-icon:hover, .header-icon:hover {
+    color: var(--light-magenta);
+    transform: scale(1.2);  /* Return to original scale */
+}
+
+.instagram-inverted, .spotify-inverted, .youtube-inverted {
+    display: inline-block;
+    flex: 1;
+    padding: 1rem 1.5rem;
+    background-color: var(--light-magenta);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.375rem;
+    border: 4px solid var(--black);
+    box-shadow: var(--shadow-offset-x) var(--shadow-offset-y) 0 var(--black);
+    transition: box-shadow 0.2s, background-color 0.2s, color 0.2s, top 0.2s, left 0.2s;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    top: 0;
+    left: 0;
+    min-width: 140px;
+}
+
+.instagram-inverted:hover, .spotify-inverted:hover, .youtube-inverted:hover {
+    background-color: white;
+    color: var(--light-magenta);
+    box-shadow: calc(var(--shadow-offset-x) + 2px) calc(var(--shadow-offset-y) + 2px) 0 var(--black);
+    top: -2px;
+    left: -2px;
+    transform: rotateZ(0.3deg);
+}
+
+.instagram-inverted:active, .spotify-inverted:active, .youtube-inverted:active {
+    box-shadow: calc(var(--shadow-offset-x) - 2px) calc(var(--shadow-offset-y) - 2px) 0 var(--black);
+    top: 2px;
+    left: 2px;
+}
+
+/* Apply enhanced hover effect only on desktop */
+@media (min-width: 768px) {
+    .footer-icon:hover, .header-icon:hover {
+        transform: scale(1.25);
+    }
+}
+
+/* ------------------------
+   Page-specific overrides
+   ------------------------ */
+
+/* Links landing page */
+body.links-page .links-landing {
+    position: relative;
+    min-height: 100vh;
+    padding-top: calc(1.5rem + env(safe-area-inset-top, 0px));
+}
+body.links-page .container {
+    padding: 1.5rem;
+}
+body.links-page .brutalist-button {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.9rem;
+    color: var(--black) !important;
+}
+body.links-page .brutalist-button i {
+    margin-right: 0.6rem;
+    color: var(--black) !important;
+}
+body.links-page .news-card { display:flex; gap:1rem; align-items:center; }
+body.links-page .news-image { max-width: 80px; height: auto; border-radius:6px; }
+body.links-page .news-text h2 { font-size: 1.1rem; margin-bottom: 0.2rem; }
+body.links-page .news-text p { font-size: 0.95rem; margin:0; }
+
+@media (max-width: 480px) {
+    body.links-page { padding-top: 1rem; }
+    body.links-page .logo-container .band-name { font-size: 1.8rem; }
+}
+
+/* End page-specific overrides */
+
+/* Media Queries */
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+    .band-name {
+        letter-spacing: 0.015em;
+        padding: 0.8rem 0;
+    }
+    
+    .button-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .brutalist-button {
+        width: 100%;
+        font-size: 1.3rem; /* Slightly smaller on tablets */
+        padding: .5rem 1.5rem;
+    }
+    
+    .language-button {
+        font-size: 1.3rem; /* Slightly smaller on tablets */
+    }
+
+    .news-card-art-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-image-container {
+        display: none;
+    }
+    
+    .news-card {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .band-name {
+        
+        letter-spacing: 0.01em;
+        word-spacing: 0.03em;
+    }
+}
+
+@media (max-width: 480px) {
+    .band-name {
+        
+        letter-spacing: 0.005em;
+        word-spacing: 0.01em;
+    }
+    
+    .band-name:hover {
+        text-shadow: 4px 4px 0 var(--light-magenta);
+    }
+    
+    .language-buttons {
+        flex-direction: column;
+    }
+    
+    .brutalist-button, .language-button {
+        font-size: 1.2rem; /* Smaller text on mobile */
+        padding: 0.9rem 1.2rem;
+    }
+
+    .logo-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .band-name {
+        font-size: 2rem;
+        letter-spacing: 0;
+        padding: 0.5rem 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .band-name {
+        font-size: 1.7rem;
+        letter-spacing: 0;
+        word-spacing: 0;
+    }
+    
+    .band-name:hover {
+        text-shadow: 3px 3px 0 var(--light-magenta);
+    }
+}
+
+
+/* -------- Hue animation -------- */
+
+@-webkit-keyframes rainbow {
+    from { -webkit-filter:hue-rotate(10deg); }
+      to { -webkit-filter:hue-rotate(360deg); }
+ }
+ 
+ @keyframes rainbow {
+  from {
+     -webkit-filter:hue-rotate(10deg);
+             filter:hue-rotate(10deg);
+     }
+   to {
+     -webkit-filter:hue-rotate(360deg);
+             filter:hue-rotate(360deg);
+     }
+ }
+
+/* -------- Hue animation -------- */
