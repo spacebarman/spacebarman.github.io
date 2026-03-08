@@ -2,7 +2,7 @@ var news = {
     expires: "2026-04-08 11:59:59",
     title: "New Album!",
     text: "Accidental",
-    image: "images/Spacebarman-Accidental-thumb05.jpg",
+    image: "/images/Spacebarman-Accidental-thumb05.jpg",
     cta: "https://www.spacebarman.com/accidental",
     ctaText:"Listen now!"
 };
