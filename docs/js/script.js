@@ -1,9 +1,9 @@
 var news = {
-    expires: "2025-12-31 11:59:59",
-    title: "New Single!",
-    text: "Sometimes We Go to Dark Places",
-    image: "https://f4.bcbits.com/img/a3957884858_16.jpg",
-    cta: "https://www.youtube.com/watch?v=cHmxURU3Ib8",
+    expires: "2026-04-08 11:59:59",
+    title: "New Album!",
+    text: "Accidental",
+    image: "images/Spacebarman-Accidental-thumb05.jpg",
+    cta: "https://www.spacebarman.com/accidental",
     ctaText:"Listen now!"
 };
 
